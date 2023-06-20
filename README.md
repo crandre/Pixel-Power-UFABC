@@ -4,5 +4,4 @@ Repositório do grupo Pixel Power, formado para a realização das atividades da
 
 ## Link para o site do Grupo
 
-Em breve.
-<!-- https://techteamufabc.github.io/TechTeam/ -->
+https://adinanabf.github.io/Pixel-Power-UFABC/
