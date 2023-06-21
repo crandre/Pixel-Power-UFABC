@@ -4,4 +4,4 @@ Repositório do grupo Pixel Power, formado para a realização das atividades da
 
 ## Link para o site do Grupo
 
-https://adinanabf.github.io/Pixel-Power-UFABC/
+https://crandre.github.io/Pixel-Power-UFABC/
