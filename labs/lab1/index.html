@@ -42,7 +42,83 @@
 								Possibilita o uso de novos recursos antes possíveis apenas com a aplicação de outras tecnologias. 
 								Sua essência tem sido melhorar a linguagem com o suporte para as mais recentes multimídias, 
 								enquanto a mantém facilmente legível por seres humanos e consistentemente compreendida por 
-								computadores e outros dispositivos (navegadores, parsers etc). Fonte do texto: 
+								computadores e outros dispositivos (navegadores, parsers etc). Fonte do texto:
+
+							<h2 class="major">INTRODUÇÃO</h2>
+							<p align="justify">Para este laboratório foram realizados trabalhos com OpenCV no sistema operacional Ubuntu,
+								assim utilizando os comandos essenciais para visualizar, gravar e mostrar imagens e vídeos.
+								O OpenCV, uma biblioteca amplamente utilizada, fornece diversas ferramentas e algoritmos
+								que possibilitam a compilação de dados.
+
+								Foram explorados os comandos fundamentais para gravar e visualizar imagens/vídeos usando o VSCODE.
+								Através desses comandos, foi possível carregar, exibir e salvar imagens, bem como capturar,
+								exibir e salvar vídeos. Esses aprendizados adquiridos são essenciais para o processamento de
+								dados visuais e fornecem as bases para os próximos experimentos.
+
+							<h2 class="major">METODOLOGIA</h2>
+							<p align="justify">Visando a realização do experimento, fez-se necessário a preparação do ambiente,
+								assim utilizando as ferramentas virtuais de processamento de imagem. Seguindo o passo a passo proposto,
+								foram instaladas todas as bibliotecas necessárias, foram baixados também os arquivos da pasta do laboratório (MOODLE),
+								que incluíam imagens, vídeos, scripts de código-fonte.
+
+								Uma vez concluída a preparação, iniciou-se o processamento para os quatro principais focos de estudo do laboratório
+								(Leitura de imagem em arquivo, Leitura de vídeo em arquivo, Leitura de imagem de câmera, Gravação de vídeo da câmera).
+								Para simular os programas propostos utilizou-se o VSCODE e assim as alterações necessárias foram efetuadas.
+
+							<h2 class="major">QUESTIONÁRIO</h2>
+							<p align="justify">(A) Por que a janela aberta não mostra a imagem colorida?
+							<br/>
+							R: A janela inicialmente não mostra a imagem colorida, pois durante a chamada da função foi passado o argumento 0,
+							indicando à biblioteca OpenCV que a imagem deve ser processada em preto e branco.
+							<br/>
+
+							<img src="../../images/L1QA.jpeg" alt="img = cv.imread('messi.jpg', 0)">
+
+							<p align="justify">	(B) Modifique o programa para que as imagens sejam exibidas mais rapidamente e
+								depois para que sejam exibidas mais lentamente. Responda: Qual a explicação de alteração de velocidade
+								de exibição, e apresente suas soluções detalhadamente.
+								<br/>
+
+								R: A velocidade de reprodução do vídeo é definida pela linha de comando time.sleep,
+								que define o tempo que a aplicação esperará para a exibição do próximo frame.
+
+								Quanto menor o valor do parâmetro da função, mais rapidamente o vídeo será reproduzido.
+								E, quanto maior for o parâmetro, mais lentamente o vídeo será exibido.
+								<br/>
+
+								(C)  Modifique o programa para que uma imagem da câmera seja salva
+								num arquivo “foto1.png” no momento em que for clicada a tecla ‘x’ no
+								teclado. Apresente o resultado e sua solução detalhadamente.
+								<br/>
+
+								R: A velocidade de reprodução do vídeo é definida pela linha de comando time.sleep,
+								que define o tempo que a aplicação esperará para a exibição do próximo frame.
+
+								Quanto menor o valor do parâmetro da função, mais rapidamente o vídeo será reproduzido.
+								E assim, quanto maior for o parâmetro, mais lentamente o vídeo será exibido.
+								<br/>
+
+							<img src="../../images/L1QC.jpeg" alt="L1QC.jpeg">
+
+							<p align="justify">(D)  Modifique o programa para que as imagens gravadas estejam
+								“normais” no arquivo de vídeo salvo, e apresentem uma velocidade de
+								exibição adequada. Apresente o resultado e sua solução detalhadamente.
+								<br/>
+
+								R: Para realizar essa modificação, foi necessária a alteração do valor da variável fps,
+								que encontra-se no início do código. Essa variável é um parâmetro na função vídeo writer.
+								<br/>
+
+							<img src="../../images/L1QD.jpeg" alt="L1QD.jpeg">
+
+							<h2 class="major">CONCLUSÃO</h2>
+
+							<p align="justify"> Neste relatório, exploramos o processamento de vídeo/imagem e apontamos algumas
+								das funcionalidades e características envolvidas nesse processo. Ao aplicar esses conhecimentos,
+								foi possível explorar diferentes formas de processamento de vídeo e imagem, reconhecimento de padrões,
+								análise de velocidades, dentre outros. Portanto, a compreensão desses conceitos básicos de
+								processamento de vídeo é de suma importância para o desenvolvimento de projetos mais complexos e aprofundados nessa área.
+
 						</div>
 					</section>
 			</div>
