@@ -40,39 +40,64 @@
 				<!-- Main -->
 					<section id="main" class="wrapper">
 						<div class="inner" >
-							<h1 class="major">Lab 2: HTML 5</h1>
+							<h1 class="major">Lab 2: Filtragem de Imagem</h1>
+							<p>Neste laboratório, estudamos a filtragem de imagens. A filtragems seria um processamento no sinal da imagem que resulta em um fenômeno visual. Assim como em sinais unidimensionais, as imagens também podem ser filtradas com vários filtros passa-baixa (LPF), passa-alta (HPF), entre outros. O LPF ajuda a remover ruídos, desfocar imagens, etc. Os filtros HPF ajudam a encontrar bordas nas imagens.
+							</p>
+							<p>Os experimentos deste laboratório consistiram em reproduzir o <a href="https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html" target="_blank">tutorial de filtragem de imagens</a>  disponível no site da biblioteca Open-CV. Abaixo, exibimos os experimentos realizados, os resultados obtidos e o código de cada experimento respectivamente. </p>
 
-							<h2 class="major">AVAREGING</h2>
+							<h2 class="major">Convolução 2D</h2>
+							<p>Este experimento consistiu em aplicar uma convolução 2D na imagem. A operação funciona da seguinte forma: mantenha o kernel de filtro de média acima de um pixel, some todos os 25 pixels abaixo deste kernel, tire a média e substitua o pixel central pelo novo valor médio. Essa operação é repetida para todos os pixels na imagem. </p>
+							<p>Abaixo, exibimos o código do experimento e os resultados obtidos: </p>
 							<script src="https://gist.github.com/EnzoErbert-CT/0d4d7fc05b48adca3148bc45f6bd575b.js"></script>
 
 							<span><img src="./codigos/imagens/codigo_1.png" alt="avareging"></span><br>
 							<span><img src="./codigos/imagens/codigo_1_opencv.png" alt="avareging_opencv"></span><br>
+							<br><br>
+							<h2>Desfoque de imagem (suavização de imagem)</h2>
+							<P>O desfoque de imagem é alcançado convolvendo a imagem com um kernel de filtro passa-baixa. Isso é útil para remover ruído. Na verdade, ele remove o conteúdo de alta frequência (por exemplo: ruído, bordas) da imagem. Portanto, as bordas são um pouco desfocadas nesta operação (existem também técnicas de desfoque que não desfocam as bordas). O OpenCV fornece quatro principais tipos de técnicas de desfoque.
 
-							<h2 class="major">BLURRED</h2>
+							</P>
+
+
+							<h3 class="major">1. Desfoque de Média (Averaging)</h3>
+
+							<P>
+								Isso é feito convolvendo uma imagem com um filtro de caixa normalizado. Ele simplesmente calcula a média de todos os pixels dentro da área do kernel e substitui o elemento central. Isso é feito pela função cv.blur() ou cv.boxFilter(). Veja abaixo os resultados e o código.</P>
 
 							<script src="https://gist.github.com/EnzoErbert-CT/eec7fe1632b0706b5f21a7df1fb19be5.js"></script>
 							<span><img src="./codigos/imagens/codigo_2.png" alt="blurred_codigo_2"></span><br>
 							<span><img src="./codigos/imagens/codigo_2_opencv.png" alt="blurred_codigo_2_opencv"></span><br>
-
-							<h2 class="major">BLURRED 2</h2>
-
+							
+							<br><br>
+							<h2 class="major">2. Desfoque Gaussiano</h2>
+								<p>Nesse método, em vez de um filtro de caixa, é utilizado um kernel gaussiano. Isso é feito com a função cv.GaussianBlur(). Devemos especificar a largura e altura do kernel, que devem ser positivas e ímpares. Também devemos especificar o desvio padrão nas direções X e Y, sigmaX e sigmaY, respectivamente. Se apenas sigmaX for especificado, sigmaY será considerado igual a sigmaX. Se ambos forem fornecidos como zero, eles serão calculados a partir do tamanho do kernel. O desfoque gaussiano é altamente eficaz na remoção de ruído gaussiano de uma imagem. Veja os resultados e o código abaixo.</p>
 							<script src="https://gist.github.com/EnzoErbert-CT/4a307c10b3a4e92122acd7ce1df89812.js"></script>
 							<span><img src="./codigos/imagens/codigo_3.png" alt="blurred_codigo_3"></span><br>
 							<span><img src="./codigos/imagens/codigo_3_opencv.png" alt="blurred_codigo_3_opencv"></span><br>
 
-							<h2 class="major">MEDIAN BLURRING</h2>
+							<br><br>
+							<h2 class="major">3. Desfoque mediano</h2>
+							<p>Aqui, a função cv.medianBlur() calcula a mediana de todos os pixels dentro da área do kernel, e o elemento central é substituído por esse valor mediano. Isso é altamente eficaz contra o ruído sal e pimenta em uma imagem. Curiosamente, nos filtros mencionados anteriormente, o elemento central é um valor recém-calculado que pode ser um valor de pixel na imagem ou um novo valor. Mas no desfoque mediano, o elemento central é sempre substituído por algum valor de pixel na imagem. Isso reduz efetivamente o ruído. O tamanho do kernel deve ser um inteiro ímpar e positivo.
+							</p>
 
 							<script src="https://gist.github.com/EnzoErbert-CT/f065da557ed85b8fd55527471126b980.js"></script>
 							<span><img src="./codigos/imagens/codigo_4.png" alt="median_blurring"></span><br>
 							<span><img src="./codigos/imagens/codigo_4_opencv.png" alt="median_blurring_opencv"></span><br>
 
-							<h2 class="major">BLURRED 3</h2>
+							<br><br>
+
+							<h2 class="major">4. Filtragem Bilateral</h2>
+
+							<p>O cv.bilateralFilter() é altamente eficaz na remoção de ruído, mantendo as bordas nítidas. No entanto, a operação é mais lenta em comparação com outros filtros. Já vimos que um filtro gaussiano leva em consideração a vizinhança ao redor do pixel e encontra a média ponderada gaussiana. Esse filtro gaussiano é uma função apenas do espaço, ou seja, considera pixels próximos durante o processo de filtragem. Ele não leva em consideração se os pixels têm intensidades quase iguais. Também não leva em consideração se um pixel é uma borda ou não. Portanto, ele também desfoca as bordas, o que não desejamos fazer. </p>
+
+							<p>O filtro bilateral também utiliza um filtro gaussiano no espaço, mas também utiliza outro filtro gaussiano que é uma função da diferença de intensidade entre pixels. A função gaussiana do espaço garante que apenas pixels próximos sejam considerados para o desfoque, enquanto a função gaussiana da diferença de intensidade garante que apenas os pixels com intensidades semelhantes ao pixel central sejam considerados para o desfoque. Dessa forma, ele preserva as bordas, pois os pixels nas bordas terão uma grande variação de intensidade.</p>
 
 							<script src="https://gist.github.com/EnzoErbert-CT/f3fa68b6ab338cee0cf9e96e3e3a39c9.js"></script>
 							<span><img src="./codigos/imagens/codigo_5.png" alt="blurred_codigo_5"></span><br>
 							<span><img src="./codigos/imagens/codigo_5_opencv.png" alt="blurred_codigo_5_opencv"></span><br>
 
-							<p align="justify"> Esse foi o Lab 2
+							<hr>
+							<p>O conteúdo deste laboratório foi retirado do tutorial <i><a href="https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html"> Smoothing Images, de Open-CV</a></i>.</p>
 						</div>
 					</section>
 			</div>
