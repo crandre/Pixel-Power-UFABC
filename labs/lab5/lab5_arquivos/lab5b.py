@@ -2,7 +2,13 @@
 import cv2
 
 # capturing video
-capture = cv2.VideoCapture("./labs/lab5/lab5_arquivos/vtest.avi")
+# capture = cv2.VideoCapture("./labs/lab5/lab5_arquivos/vtest.avi")
+
+# movimento lento motion detecting
+capture = cv2.VideoCapture("./labs/lab1/saida2.avi")
+
+# movimento rápido motion detecting
+capture = cv2.VideoCapture("./labs/lab1/saida7.avi")
 
 while capture.isOpened():
     # to read frame by frame

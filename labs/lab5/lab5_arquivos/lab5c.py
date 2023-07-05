@@ -1,6 +1,13 @@
 import cv2
 
-cap = cv2.VideoCapture("./labs/lab5/lab5_arquivos/vtest.avi")
+# cap = cv2.VideoCapture("./labs/lab5/lab5_arquivos/vtest.avi")
+
+# movimento lento detecta apenas movimentos (motion detection)
+cap = cv2.VideoCapture("./labs/lab1/saida2.avi")
+
+
+# movimento rápido detecta apenas movimentos (motion detection)
+cap = cv2.VideoCapture("./labs/lab1/saida7.avi")
 
 #mog = cv2.createBackgroundSubtractorMOG2()
 mog = cv2.createBackgroundSubtractorKNN()
