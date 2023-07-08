@@ -54,8 +54,6 @@ while True:
 capture.release()
 out_1.release()
 out_2.release()
-cont += 1
-
 
 
 # Close all OpenCV windows
