@@ -4,8 +4,11 @@ cap = cv.VideoCapture(0)
 
 # Get current width of frame
 width = cap.get(cv.CAP_PROP_FRAME_WIDTH)   # float
+print(width)
 # Get current height of frame
 height = cap.get(cv.CAP_PROP_FRAME_HEIGHT) # float
+print(height)
+
 # Define Video Frame Rate in fps
 fps = 30.0
 
