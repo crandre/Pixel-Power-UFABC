@@ -1,12 +1,17 @@
+# Feature - Introduction to SIFT (Scale-Invariant Feature Transform)
 import numpy as np
 import cv2 as cv
 
-img = cv.imread('home.jpg')
-gray= cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+images = ['adinan', 'enzo', 'giovanna', 'randre', 'tabuleiro']
+extention = 'png'
 
-sift = cv.SIFT_create()
-kp = sift.detect(gray,None)
+for image in images:
+    img = cv.imread(f'./images/{image}.{extention}')
+    gray= cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 
-img=cv.drawKeypoints(gray,kp,img)
+    sift = cv.SIFT_create()
+    kp = sift.detect(gray,None)
 
-cv.imwrite('sift_keypoints.jpg',img)
+    img=cv.drawKeypoints(gray,kp,img)
+
+    cv.imwrite(f'./labs/lab6/lab6c/{image}.{extention}',img)
