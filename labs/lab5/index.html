@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Lab 5 - Pixel Power - UFABC</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="../../index.html" class="title">Pixel Power</a>
+				<nav>
+					<ul>
+						<li><a href="../lab2/index.html">Lab 4</a></li>
+						<li><a href="../../index.html#two">Laboratórios</a></li>
+						<li><a href="../../index.html">Início</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner" >
+							<h1 class="major">Lab 5: Subtração de fundo e detecção de movimento</h1>
+							<!-- <span class="image right"><img src="html5logo.png" alt="Logotipo do HTML 5" height="220" width="220"> </span> -->
+								</p>
+								<h3>Introdução</h3>
+								<p>Para o laboratório 5, foram abordados temas como: subtração de fundo, rastreio e detecção de movimento, utilizando OPENCV e PYTHON.
+									O objetivo se relaciona com a leitura de dados das imagens e dos vídeos gravados e assim posteriormente a amostragem dos vídeos já processados.
+								</p>
+								<h2>Experimento</h2>
+								<h3>Metodologia</h3>
+								<p>A partir dos programas disponibilizados no Moodle UFABC, na matéria de processamento de vídeo, foram realizadas pequenas modificações na estrutura dos códigos, para que fossem processados e salvos dois vídeos de forma simultânea, o vídeo com movimentos lentos e com movimentos rápidos.
+									</p>
+									
+								<p>O primeiro programa (letra a) realiza a subtração do fundo (Background Subtraction), o segundo programa (letra b) detecta movimentações, juntamente com o rastreio de objetos e o terceiro programa (letra c) promove apenas a detecção de movimentação.
+									<br><br>Abaixo estão expostos os resultados obtidos:</p>
+
+
+								<h3>A - Estude a teoria sobre Subtração de Fundo</h3>
+
+								<script src="https://gist.github.com/giovannaandrade/6d32d5eb559538b32347e3489e88338c.js"></script>
+
+								<br>
+								
+								<b>Resultados obtidos</b>
+										
+								<div>
+									<center>
+										<h3>Enzo</h3>
+										Webcam<br> 
+										<video width="320" height="240" controls>
+											<source src="./Output_1_Lab5a_1.avi" type="video/mp4">
+											Your browser does not support the video tag.
+										  </video>
+										  <br>
+									
+
+									
+										Resultado<br> 
+										<video width="320" height="240" controls>
+											<source src="./Output_2_Lab5a_1.avi" type="video/mp4">
+											Your browser does not support the video tag.
+										  </video>
+										  <br>
+									</center>
+									<br>
+
+									<center>
+										<h3>Giovanna</h3>
+										Webcam<br> 
+										<video width="320" height="240" controls>
+											<source src="./Output_1_Lab5a_2.avi" type="video/mp4">
+											Your browser does not support the video tag.
+										  </video>
+										  <br>
+								
+									
+										Resultado<br> 
+										<video width="320" height="240" controls>
+											<source src="./Output_2_Lab5a_2.avi" type="video/mp4">
+											Your browser does not support the video tag.
+										  </video>
+										  <br>
+									</center>
+								</div>
+
+								<br>
+
+								<!-- <ul>
+									<li>
+										Webcam
+										<span class="image fit"><img src="../lab3/fotos/16_frame.png"></span><br>
+									</li>
+
+									<li>
+										Máscara
+										<span class="image fit"><img src="../lab3/fotos/16_mask.png"></span><br>
+									</li>
+
+									<li>
+										Resultado
+										<span class="image fit"><img src="../lab3/fotos/16_res.png"></span><br>
+									</li>
+
+								</ul> -->
+
+								<br>
+
+								<h3>Modifique novamente, para realizar o rastreamento de uma cor, e aplicar na imagem resultante (imagem depois do mascaramento)  um dos filtros da aula anterior, na imagem de entrada da webcam, tal que a imagem fique visualmente agradável.</h3>
+
+								<script src="https://gist.github.com/adinanabf/7e3ccf1e32c2d4b9911acaa855d13098.js"></script>
+
+								<br>
+								<b>Imagens obtidas</b> <br>
+										
+										<div class="box alt">
+											<div class="row gtr-uniform">
+											<div class="col-6"><span class="image fit"><img src="../lab3/fotos/giovanna_blur.png"/></span></div>
+											<div class="col-6"><span class="image fit"><img src="../lab3/fotos/giovanna_blur_resultado.png"/></span></div>
+										</div>
+								<br><br>
+
+								<h3>Adicionalmente modifique o programa para gravar um video dos experimentos de rastreamento.</h3>
+
+								<script src="https://gist.github.com/adinanabf/8f6883dd8dc43293c17067557125f725.js"></script>
+
+								<br>
+
+								<b>Vídeos obtidos (.avi) </b><br>
+								<div>
+									<center>
+										Webcam<br> 
+										<video width="320" height="240" controls>
+											<source src="./saida1_blur.mp4" type="video/mp4">
+											Your browser does not support the video tag.
+										  </video>
+										  <br>
+									
+
+									
+										Resultado<br> 
+										<video width="320" height="240" controls>
+											<source src="./saida3_blur.mp4" type="video/mp4">
+											Your browser does not support the video tag.
+										  </video>
+										  <br>
+									</center>
+									<br>
+								</div>
+								<br>
+
+								<h3>Tente encontrar uma maneira de extrair mais de um objeto colorido, por exemplo, extraia objetos vermelhos, azuis e verdes simultaneamente.</h3>
+
+								<script src="https://gist.github.com/adinanabf/4f6c2eca8fdced62ca637c861cfb3541.js"></script>
+
+								<br>
+								<b>Imagens obtidas</b> <br>
+										
+										<div class="box alt">
+											<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="../lab3/fotos/202_frame.png"/></span></div>
+											<div class="col-4"><span class="image fit"><img src="../lab3/fotos/202_mask.png"/></span></div>
+											<div class="col-4"><span class="image fit"><img src="../lab3/fotos/202_res.png"/></span></div>
+
+										</div>
+								<br><br>
+								
+						</div>
+					</section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Pixel Power 2023. Todos os direitos reservados.</li><li>Inspiração para o design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
