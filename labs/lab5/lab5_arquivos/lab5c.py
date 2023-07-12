@@ -1,19 +1,37 @@
+# import the opencv module
 import cv2
+import time
 
-# cap = cv2.VideoCapture("./labs/lab5/lab5_arquivos/vtest.avi")
+videos = {
+    "enzo":"./labs/lab1/saida2.avi",
+    "giovanna":"./labs/lab1/saida7.avi",
+}
 
-# movimento lento detecta apenas movimentos (motion detection)
-cap = cv2.VideoCapture("./labs/lab1/saida2.avi")
+video = "enzo"
 
+# capturing video
+cap = cv2.VideoCapture(videos[video])
 
-# movimento rápido detecta apenas movimentos (motion detection)
-cap = cv2.VideoCapture("./labs/lab1/saida7.avi")
+# Get current width and height of frame
+width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+# Define Video Frame Rate in fps
+fps = 30.0
+
+timestamp = time.time()
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+
+out = cv2.VideoWriter(f'./labs/lab5/5c_{video}_{timestamp}.mp4', fourcc, fps, (width, height))
 
 #mog = cv2.createBackgroundSubtractorMOG2()
 mog = cv2.createBackgroundSubtractorKNN()
 
 while True:
     ret, frame = cap.read()
+    if not ret:
+        break  # Exit the loop if the frame wasn't read correctly
+
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
     fgmask = mog.apply(gray)
@@ -34,8 +52,12 @@ while True:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
     
     cv2.imshow('Motion Detection', frame)
-    if cv2.waitKey(1) == ord('q'):
+    out.write(frame)
+
+    if cv2.waitKey(30) == ord('q'):
+        out.release()
         break
-        
+
+out.release()
 cap.release()
 cv2.destroyAllWindows()

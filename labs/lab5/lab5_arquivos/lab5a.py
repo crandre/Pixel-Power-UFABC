@@ -7,9 +7,12 @@ import cv2 as cv
 
 # movimento lento foreground mask
 capture = cv.VideoCapture("./labs/lab1/saida2.avi")
+print(capture.get(cv.CAP_PROP_FRAME_WIDTH))
+print(capture.get(cv.CAP_PROP_FRAME_HEIGHT))
+
 
 # movimento rápido foreground mask
-capture = cv.VideoCapture("./labs/lab1/saida7.avi")
+# capture = cv.VideoCapture("./labs/lab1/saida7.avi")
 
 backSub = cv.createBackgroundSubtractorMOG2()
 
@@ -34,5 +37,5 @@ while True:
  cv.imshow('FG Mask', fgMask)
  
  keyboard = cv.waitKey(30)
- if keyboard == 'q' or keyboard == 27:
+ if keyboard == ord('q') or keyboard == 27:
    break
