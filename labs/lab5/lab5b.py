@@ -1,4 +1,3 @@
-# import the opencv module
 import cv2
 import time
 
@@ -7,7 +6,7 @@ videos = {
     "giovanna":"./labs/lab1/saida7.avi",
 }
 
-video = "enzo"
+video = "giovanna"
 
 # capturing video
 capture = cv2.VideoCapture(videos[video])
@@ -17,10 +16,8 @@ width = int(capture.get(cv2.CAP_PROP_FRAME_WIDTH))
 height = int(capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
 # Define Video Frame Rate in fps
-fps = 30.0
+fps = capture.get(cv2.CAP_PROP_FPS)  # Get the FPS of the input video
 
-# movimento rápido motion detecting
-# capture = cv2.VideoCapture("./labs/lab1/saida7.avi")
 timestamp = time.time()
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 
@@ -65,9 +62,8 @@ while capture.isOpened():
     out.write(img_1)
 
     if cv2.waitKey(100) == ord('q'):
-        out.release()
-        exit()
+        break
 
-    out.release()
-
+capture.release()
 out.release()
+cv2.destroyAllWindows()

@@ -97,86 +97,113 @@
 								</div>
 
 								<br>
-
-								<!-- <ul>
-									<li>
-										Webcam
-										<span class="image fit"><img src="../lab3/fotos/16_frame.png"></span><br>
-									</li>
-
-									<li>
-										Máscara
-										<span class="image fit"><img src="../lab3/fotos/16_mask.png"></span><br>
-									</li>
-
-									<li>
-										Resultado
-										<span class="image fit"><img src="../lab3/fotos/16_res.png"></span><br>
-									</li>
-
-								</ul> -->
-
 								<br>
 
-								<h3>Modifique novamente, para realizar o rastreamento de uma cor, e aplicar na imagem resultante (imagem depois do mascaramento)  um dos filtros da aula anterior, na imagem de entrada da webcam, tal que a imagem fique visualmente agradável.</h3>
+								<h3>Subtração Frame-a-Frame</h3>
 
-								<script src="https://gist.github.com/adinanabf/7e3ccf1e32c2d4b9911acaa855d13098.js"></script>
+								<p>A técnica de "Diferença entre duas imagens" ou "Subtração frame-a-frame" é um método simples, mas eficaz, usado para detectar movimento em vídeos. Ela se baseia na subtração de duas imagens consecutivas (frames) dentro de um vídeo para identificar a diferença entre elas. Qualquer objeto em movimento vai aparecer como um conjunto de pixels alterados, enquanto as áreas estáticas permanecerão praticamente inalteradas. Essa diferença resultante, ou 'delta', é então usada para criar uma imagem binária ou uma "máscara" onde os pixels brancos representam movimento e os pixels pretos representam áreas estáticas. Embora essa técnica seja computacionalmente eficiente e fácil de implementar, ela pode ser sensível a mudanças na iluminação e sombras, o que pode levar a detecções de movimento falsas. Apesar disso, é amplamente usada em diversas aplicações, incluindo vigilância de vídeo e rastreamento de objetos.</p>
 
-								<br>
-								<b>Imagens obtidas</b> <br>
+								<script src="https://gist.github.com/adinanabf/1d07bc9847990bb6c74c971d746276d5.js"></script> <Br>
+
+								<b>Resultados obtidos</b>
 										
-										<div class="box alt">
-											<div class="row gtr-uniform">
-											<div class="col-6"><span class="image fit"><img src="../lab3/fotos/giovanna_blur.png"/></span></div>
-											<div class="col-6"><span class="image fit"><img src="../lab3/fotos/giovanna_blur_resultado.png"/></span></div>
-										</div>
-								<br><br>
-
-								<h3>Adicionalmente modifique o programa para gravar um video dos experimentos de rastreamento.</h3>
-
-								<script src="https://gist.github.com/adinanabf/8f6883dd8dc43293c17067557125f725.js"></script>
-
-								<br>
-
-								<b>Vídeos obtidos (.avi) </b><br>
 								<div>
 									<center>
-										Webcam<br> 
+										<h3>Enzo</h3>
 										<video width="320" height="240" controls>
-											<source src="./saida1_blur.mp4" type="video/mp4">
+											<source src="./5b_enzo_1689382846.5281594.mp4" type="video/mp4">
 											Your browser does not support the video tag.
 										  </video>
-										  <br>
-									
 
-									
-										Resultado<br> 
+										<br><br>
+
+										<h3>Giovanna</h3>
 										<video width="320" height="240" controls>
-											<source src="./saida3_blur.mp4" type="video/mp4">
+											<source src="./5b_giovanna_1689382868.5011723.mp4" type="video/mp4">
 											Your browser does not support the video tag.
 										  </video>
 										  <br>
 									</center>
-									<br>
 								</div>
-								<br>
 
-								<h3>Tente encontrar uma maneira de extrair mais de um objeto colorido, por exemplo, extraia objetos vermelhos, azuis e verdes simultaneamente.</h3>
 
-								<script src="https://gist.github.com/adinanabf/4f6c2eca8fdced62ca637c861cfb3541.js"></script>
-
-								<br>
-								<b>Imagens obtidas</b> <br>
-										
-										<div class="box alt">
-											<div class="row gtr-uniform">
-											<div class="col-4"><span class="image fit"><img src="../lab3/fotos/202_frame.png"/></span></div>
-											<div class="col-4"><span class="image fit"><img src="../lab3/fotos/202_mask.png"/></span></div>
-											<div class="col-4"><span class="image fit"><img src="../lab3/fotos/202_res.png"/></span></div>
-
-										</div>
 								<br><br>
-								
+
+								<h3>Diferença da imagem de referência (Foreground Mask)</h3>
+								<p>A "Diferença da imagem de referência" ou "Foreground mask" é uma técnica comum utilizada na detecção de movimento em vídeos. O princípio básico por trás dessa técnica é comparar cada frame do vídeo com uma imagem de referência, que geralmente é o frame anterior ou um frame de fundo estático. Quando há movimento no vídeo, a comparação entre o frame atual e a imagem de referência irá resultar em uma diferença notável, gerando uma "máscara de primeiro plano" que destaca as áreas de mudança. A detecção de movimento por meio de máscaras de primeiro plano é geralmente mais eficiente do que outras técnicas, pois apenas as áreas de mudança são processadas, economizando recursos computacionais.</p>
+
+								<script src="https://gist.github.com/adinanabf/d9e895b9f18418c0f5384b7e6ea4f4b7.js"></script> <Br>
+
+								<b>Resultados obtidos</b>
+										
+								<div>
+									<center>
+										<h3>Enzo</h3>
+										<video width="320" height="240" controls>
+											<source src="./5c_enzo_1689203033.8712661.mp4" type="video/mp4">
+											Your browser does not support the video tag.
+										  </video>
+
+										<br><br>
+
+										<h3>Giovanna</h3>
+										<video width="320" height="240" controls>
+											<source src="./5c_giovanna_1689203019.488682.mp4" type="video/mp4">
+											Your browser does not support the video tag.
+										  </video>
+										  <br>
+									</center>
+								</div>
+
+								<br><br>
+							<hr>
+
+							<h3>Bônus: Detecção de movimento em video ao vivo</h3>
+
+							<script src="https://gist.github.com/adinanabf/e42264a4711f30cd9f92286ab1c7c6b5.js"></script>
+
+							<b>Resultados obtidos</b>
+										
+							<div>
+								<center>
+									<h3>Adinan</h3>
+									<video width="320" height="240" controls>
+										<source src="./5b_webcam_adinan.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									  </video>
+
+									<br><br>
+
+									  <h3>Enzo</h3>
+									<video width="320" height="240" controls>
+										<source src="./5b_webcam_enzo.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									  </video>
+									  <br><br>
+
+									  <h3>Giovanna</h3>
+									  <video width="320" height="240" controls>
+										  <source src="./5b_webcam_adinan_giovanna.mp4" type="video/mp4">
+										  Your browser does not support the video tag.
+										</video>
+										<br><br>
+
+										<h3>Randre</h3>
+										<video width="320" height="240" controls>
+											<source src="./5b_webcam_randre.mp4" type="video/mp4">
+											Your browser does not support the video tag.
+										  </video>
+										  <br><br>
+
+										  <h3>Objeto</h3>
+										  <video width="320" height="240" controls>
+											  <source src="./5b_webcam_objeto.mp4" type="video/mp4">
+											  Your browser does not support the video tag.
+											</video>
+											<br><br>
+								</center>
+							</div>
+
 						</div>
 					</section>
 			</div>
