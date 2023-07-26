@@ -1,7 +1,8 @@
 import cv2, sys
 
 # Create tracker
-tracker = cv2.TrackerKCF_create()
+# tracker = cv2.TrackerKCF_create()
+tracker = cv2.legacy.TrackerCSRT_create()
 
 # Read video 
 video = cv2.VideoCapture(0) 

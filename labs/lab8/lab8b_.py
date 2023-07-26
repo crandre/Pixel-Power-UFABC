@@ -1,10 +1,16 @@
 import cv2
+import sys
+
+(major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
+
+print(major_ver, minor_ver, subminor_ver)
 
 # Create tracker
-tracker = cv2.TrackerGOTURN_create()
+# tracker = cv2.legacy.TrackerMOSSE_create()
+tracker = cv2.legacy.TrackerCSRT_create()
 
 # Read video 
-video = cv2.VideoCapture("chaplin.mp4") 
+video = cv2.VideoCapture("video-lab8.mp4")
 
 # Exit if video not opened 
 if not video.isOpened():     
@@ -22,11 +28,10 @@ bbox = (276, 23, 86, 320)
 # Uncomment the line below to select a different bounding box
 bbox = cv2.selectROI(frame, False)
 
-width = video.get(cv2.CAP_PROP_FRAME_WIDTH)
-height = video.get(cv2.CAP_PROP_FRAME_HEIGHT)
-fps = video.get(cv2.CAP_PROP_FPS)
+frame_width = int(video.get(3))
+frame_height = int(video.get(4))
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('codigoC.mp4', fourcc, 30.0, (640, 480))
+out = cv2.VideoWriter('./8b.mp4', fourcc, 30.0, (frame_width, frame_height))
 # Initialize tracker with first frame and bounding box 
 ok = tracker.init(frame,bbox)
 
@@ -61,16 +66,16 @@ while True:
     # Display FPS on frame
     cv2.putText(frame, "FPS : " + str(int(fps)), (100,50), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50,170,50), 2);
  
+    out.write(frame)
     # Display result
     cv2.imshow("Tracking", frame)
-    out.write(frame)
   
     # Exit if ESC pressed
     k = cv2.waitKey(1) & 0xff
     if k == 27:
          break
 
-out.release()
 video.release()
+out.release()
 
 cv2.destroyAllWindows()

@@ -1,11 +1,11 @@
 import cv2
-from time import sleep
+import sys
 
 # Create tracker
 tracker = cv2.TrackerKCF_create()
 
 # Read video 
-video = cv2.VideoCapture("saida1.avi")
+video = cv2.VideoCapture("video-lab8.mp4")
 
 # Exit if video not opened 
 if not video.isOpened():     
@@ -25,6 +25,12 @@ bbox = cv2.selectROI(frame, False)
 	
 # Initialize tracker with first frame and bounding box 
 ok = tracker.init(frame,bbox)
+
+
+frame_width = int(video.get(3))
+frame_height = int(video.get(4))
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+out = cv2.VideoWriter('./8a.mp4', fourcc, 30.0, (frame_width, frame_height))
 
 while True:
     # Read a new frame
@@ -56,7 +62,8 @@ while True:
  
     # Display FPS on frame
     cv2.putText(frame, "FPS : " + str(int(fps)), (100,50), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50,170,50), 2);
- 
+
+    out.write(frame)
     # Display result
     cv2.imshow("Tracking", frame)
   
@@ -64,3 +71,7 @@ while True:
     k = cv2.waitKey(1) & 0xff
     if k == 27:
         break
+
+video.release()
+out.release()
+cv2.destroyAllWindows()
