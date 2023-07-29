@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Lab 5 - Pixel Power - UFABC</title>
+		<title>Lab 8 - Pixel Power - UFABC</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../../assets/css/main.css" />
@@ -19,7 +19,7 @@
 				<a href="../../index.html" class="title">Pixel Power</a>
 				<nav>
 					<ul>
-						<li><a href="../lab6/index.html">Lab 6</a></li>
+						<li><a href="../lab8/index.html">Lab 6</a></li>
 						<li><a href="../../index.html#two">Laboratórios</a></li>
 						<li><a href="../../index.html">Início</a></li>
 					</ul>
@@ -32,21 +32,30 @@
 				<!-- Main -->
 					<section id="main" class="wrapper">
 						<div class="inner" >
-							<h1 class="major">Lab 5: Subtração de fundo e detecção de movimento</h1>
+							<h1 class="major">Lab 8: Rastreamento de Objeto</h1>
 							<!-- <span class="image right"><img src="html5logo.png" alt="Logotipo do HTML 5" height="220" width="220"> </span> -->
 								</p>
-								<h3>Introdução</h3>
-								<p>Para o laboratório 5, foram abordados temas como: subtração de fundo, rastreio e detecção de movimento, utilizando OPENCV e PYTHON.
-									O objetivo se relaciona com a leitura de dados das imagens e dos vídeos gravados e assim posteriormente a amostragem dos vídeos já processados.
+								<h3>INTRODUÇÃO</h3>
+								<p>
+									Como uma breve introdução temos que a detecção de objeto usando Haar Cascade é uma técnica popular e eficaz na área de visão computacional. Utilizada para a detecção de rostos e outros objetos em imagens e vídeos.
+									
+								<p>	O método Haar Cascade baseia-se na análise de características visuais simples, conhecidas como "Haar-like features". Essas características são padrões de formas que podem ser usados para identificar diferentes regiões em uma imagem, como bordas, linhas e texturas específicas.
+									
+								<p>A principal vantagem do Haar Cascade é a sua eficiência computacional, o que o torna adequado para aplicações em tempo real. No entanto, seu desempenho pode ser limitado quando se trata de objetos com formas muito complexas ou quando há variações significativas na aparência do objeto.
+									
+								<p>Essa técnica tem sido empregada em diversas aplicações, como detecção facial em sistemas de segurança, identificação de pedestres em veículos autônomos, entre outras tarefas que envolvem a detecção de objetos em imagens e vídeos.
+									
+								<p>Para o presente relatório iremos aplicar essa técnica em imagens coletadas dos integrantes do grupo e também pela webcan.
 								</p>
 								<h2>Experimento</h2>
 								<h3>Metodologia</h3>
-								<p>A partir dos programas disponibilizados no Moodle UFABC, na matéria de processamento de vídeo, foram realizadas pequenas modificações na estrutura dos códigos, para que fossem processados e salvos dois vídeos de forma simultânea, o vídeo com movimentos lentos e com movimentos rápidos.
+								<p>A partir dos programas presentes no Moodle UFABC, fizemos modificações na estrutura dos códigos, para que fossem processados e salvos. 							<p>O primeiro experimento é feito a partir de duas fotos, a primeira foto com os quatro integrantes do grupo e a segunda foto com a presença dos avatares.
+									Para o segundo experimento têm-se a leitura da webcan, com os resultados de identificação do objeto presentes na janela da câmera.
+									
+								<p>Segue abaixo os resultados:
 									</p>
 									
-								<p>O primeiro programa (letra a) realiza a subtração do fundo (Background Subtraction), o segundo programa (letra b) detecta movimentações, juntamente com o rastreio de objetos e o terceiro programa (letra c) promove apenas a detecção de movimentação.
-									<br><br>Abaixo estão expostos os resultados obtidos:</p>
-
+								<p>
 
 								<h3>A - Estude a teoria sobre Subtração de Fundo</h3>
 
