@@ -53,8 +53,8 @@ if not eyes_cascade.load(cv.samples.findFile(eyes_cascade_name)):
 
 #-- 2. Read the image
 
-# image = './labs/lab1/grupo.jpg'
-image = './images/avatares.jpg'
+image = './labs/lab1/grupo.jpg'
+# image = './images/avatares.jpg'
 
 frame = cv.imread(image)
 if frame is None:
