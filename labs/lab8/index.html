@@ -35,31 +35,18 @@
 							<h1 class="major">Lab 8: Rastreamento de Objeto</h1>
 							<!-- <span class="image right"><img src="html5logo.png" alt="Logotipo do HTML 5" height="220" width="220"> </span> -->
 								</p>
-								<h3>INTRODUÇÃO</h3>
-								<p>
-									Como uma breve introdução temos que a detecção de objeto usando Haar Cascade é uma técnica popular e eficaz na área de visão computacional. Utilizada para a detecção de rostos e outros objetos em imagens e vídeos.
-									
-								<p>	O método Haar Cascade baseia-se na análise de características visuais simples, conhecidas como "Haar-like features". Essas características são padrões de formas que podem ser usados para identificar diferentes regiões em uma imagem, como bordas, linhas e texturas específicas.
-									
-								<p>A principal vantagem do Haar Cascade é a sua eficiência computacional, o que o torna adequado para aplicações em tempo real. No entanto, seu desempenho pode ser limitado quando se trata de objetos com formas muito complexas ou quando há variações significativas na aparência do objeto.
-									
-								<p>Essa técnica tem sido empregada em diversas aplicações, como detecção facial em sistemas de segurança, identificação de pedestres em veículos autônomos, entre outras tarefas que envolvem a detecção de objetos em imagens e vídeos.
-									
-								<p>Para o presente relatório iremos aplicar essa técnica em imagens coletadas dos integrantes do grupo e também pela webcan.
+								<h3>Lab 8</h3>
 								</p>
 								<h2>Experimento</h2>
-								<h3>Metodologia</h3>
-								<p>A partir dos programas presentes no Moodle UFABC, fizemos modificações na estrutura dos códigos, para que fossem processados e salvos. 							<p>O primeiro experimento é feito a partir de duas fotos, a primeira foto com os quatro integrantes do grupo e a segunda foto com a presença dos avatares.
-									Para o segundo experimento têm-se a leitura da webcan, com os resultados de identificação do objeto presentes na janela da câmera.
-									
+
 								<p>Segue abaixo os resultados:
 									</p>
 									
 								<p>
 
-								<h3>A - Estude a teoria sobre Subtração de Fundo</h3>
+								<h3>Leitura dos videos com os membros da equipe</h3>
 
-								<script src="https://gist.github.com/giovannaandrade/6d32d5eb559538b32347e3489e88338c.js"></script>
+								<script src="https://gist.github.com/crandre/1e0068fe73c7d9fa0227c12a73c1efef.js"></script>
 
 								<br>
 								
@@ -67,155 +54,26 @@
 										
 								<div>
 									<center>
-										<h3>Enzo</h3>
+										<h3>Leitura dos videos com os membros da equipe</h3>
 										Webcam<br> 
+										<iframe width="1280" height="720" src="https://www.youtube.com/embed/ocOVb6knXwM" title="8a" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 										<video width="320" height="240" controls>
-											<source src="./Output_1_Lab5a_1.avi" type="video/mp4">
-											Your browser does not support the video tag.
+											<source src="./8a.mp4" type="video/mp4">
+											
 										  </video>
 										  <br>
 									
 
 									
-										Resultado<br> 
+										Resultado com a Leitura da Webcam<br> 
 										<video width="320" height="240" controls>
-											<source src="./Output_2_Lab5a_1.avi" type="video/mp4">
-											Your browser does not support the video tag.
+											<source src="./8b.mp4" type="video/mp4">
+											
 										  </video>
 										  <br>
 									</center>
-									<br>
 
-									<center>
-										<h3>Giovanna</h3>
-										Webcam<br> 
-										<video width="320" height="240" controls>
-											<source src="./Output_1_Lab5a_2.avi" type="video/mp4">
-											Your browser does not support the video tag.
-										  </video>
-										  <br>
-								
-									
-										Resultado<br> 
-										<video width="320" height="240" controls>
-											<source src="./Output_2_Lab5a_2.avi" type="video/mp4">
-											Your browser does not support the video tag.
-										  </video>
-										  <br>
-									</center>
 								</div>
-
-								<br>
-								<br>
-
-								<h3>Subtração Frame-a-Frame</h3>
-
-								<p>A técnica de "Diferença entre duas imagens" ou "Subtração frame-a-frame" é um método simples, mas eficaz, usado para detectar movimento em vídeos. Ela se baseia na subtração de duas imagens consecutivas (frames) dentro de um vídeo para identificar a diferença entre elas. Qualquer objeto em movimento vai aparecer como um conjunto de pixels alterados, enquanto as áreas estáticas permanecerão praticamente inalteradas. Essa diferença resultante, ou 'delta', é então usada para criar uma imagem binária ou uma "máscara" onde os pixels brancos representam movimento e os pixels pretos representam áreas estáticas. Embora essa técnica seja computacionalmente eficiente e fácil de implementar, ela pode ser sensível a mudanças na iluminação e sombras, o que pode levar a detecções de movimento falsas. Apesar disso, é amplamente usada em diversas aplicações, incluindo vigilância de vídeo e rastreamento de objetos.</p>
-
-								<script src="https://gist.github.com/adinanabf/1d07bc9847990bb6c74c971d746276d5.js"></script> <Br>
-
-								<b>Resultados obtidos</b>
-										
-								<div>
-									<center>
-										<h3>Enzo</h3>
-										<video width="320" height="240" controls>
-											<source src="./5b_enzo_1689382846.5281594.mp4" type="video/mp4">
-											Your browser does not support the video tag.
-										  </video>
-
-										<br><br>
-
-										<h3>Giovanna</h3>
-										<video width="320" height="240" controls>
-											<source src="./5b_giovanna_1689382868.5011723.mp4" type="video/mp4">
-											Your browser does not support the video tag.
-										  </video>
-										  <br>
-									</center>
-								</div>
-
-
-								<br><br>
-
-								<h3>Diferença da imagem de referência (Foreground Mask)</h3>
-								<p>A "Diferença da imagem de referência" ou "Foreground mask" é uma técnica comum utilizada na detecção de movimento em vídeos. O princípio básico por trás dessa técnica é comparar cada frame do vídeo com uma imagem de referência, que geralmente é o frame anterior ou um frame de fundo estático. Quando há movimento no vídeo, a comparação entre o frame atual e a imagem de referência irá resultar em uma diferença notável, gerando uma "máscara de primeiro plano" que destaca as áreas de mudança. A detecção de movimento por meio de máscaras de primeiro plano é geralmente mais eficiente do que outras técnicas, pois apenas as áreas de mudança são processadas, economizando recursos computacionais.</p>
-
-								<script src="https://gist.github.com/adinanabf/d9e895b9f18418c0f5384b7e6ea4f4b7.js"></script> <Br>
-
-								<b>Resultados obtidos</b>
-										
-								<div>
-									<center>
-										<h3>Enzo</h3>
-										<video width="320" height="240" controls>
-											<source src="./5c_enzo_1689203033.8712661.mp4" type="video/mp4">
-											Your browser does not support the video tag.
-										  </video>
-
-										<br><br>
-
-										<h3>Giovanna</h3>
-										<video width="320" height="240" controls>
-											<source src="./5c_giovanna_1689203019.488682.mp4" type="video/mp4">
-											Your browser does not support the video tag.
-										  </video>
-										  <br>
-									</center>
-								</div>
-
-								<br><br>
-							<hr>
-
-							<h3>Bônus: Detecção de movimento em video ao vivo</h3>
-
-							<script src="https://gist.github.com/adinanabf/e42264a4711f30cd9f92286ab1c7c6b5.js"></script>
-
-							<b>Resultados obtidos</b>
-										
-							<div>
-								<center>
-									<h3>Adinan</h3>
-									<video width="320" height="240" controls>
-										<source src="./5b_webcam_adinan.mp4" type="video/mp4">
-										Your browser does not support the video tag.
-									  </video>
-
-									<br><br>
-
-									  <h3>Enzo</h3>
-									<video width="320" height="240" controls>
-										<source src="./5b_webcam_enzo.mp4" type="video/mp4">
-										Your browser does not support the video tag.
-									  </video>
-									  <br><br>
-
-									  <h3>Giovanna</h3>
-									  <video width="320" height="240" controls>
-										  <source src="./5b_webcam_adinan_giovanna.mp4" type="video/mp4">
-										  Your browser does not support the video tag.
-										</video>
-										<br><br>
-
-										<h3>Randre</h3>
-										<video width="320" height="240" controls>
-											<source src="./5b_webcam_randre.mp4" type="video/mp4">
-											Your browser does not support the video tag.
-										  </video>
-										  <br><br>
-
-										  <h3>Objeto</h3>
-										  <video width="320" height="240" controls>
-											  <source src="./5b_webcam_objeto.mp4" type="video/mp4">
-											  Your browser does not support the video tag.
-											</video>
-											<br><br>
-								</center>
-							</div>
-
-						</div>
-					</section>
-			</div>
 
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">
