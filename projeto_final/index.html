@@ -27,7 +27,6 @@
 				<a href="../index.html" class="title">Pixel Power</a>
 				<nav>
 					<ul>
-						<li><a href="../lab6/index.html">Projeto Final</a></li>
 						<li><a href="../index.html#final">Laboratórios</a></li>
 						<li><a href="../index.html">Início</a></li>
 					</ul>
@@ -41,194 +40,269 @@
 					<section id="main" class="wrapper">
 						<div class="inner" >
 							<h1 class="major">Projeto Final: Power Nail</h1>
-							<p> Grupo: Pixel Power</p>
 
-							<h2 class="major">1. Resumo</h2>
-							<p> O projeto apresenta um software que simula a aplicação de esmalte em unhas através de processamento de vídeo, destinado a clientes de serviços de manicure e estudiosos de processamento de vídeo. Utilizando as bibliotecas OpenCV e TensorFlow, o software captura imagens da mão do usuário, aplica cores de esmalte escolhidas em tempo real e exibe o resultado. Essa ferramenta visa facilitar a escolha de esmaltes para clientes e otimizar o trabalho dos profissionais.</p>
+							<h2 class="major">Resumo do nosso projeto</h2>
+							<p> O projeto apresenta um software que <strong>simula a aplicação de esmalte em unhas através de processamento de vídeo</strong>, destinado a clientes de serviços de manicure e estudiosos de processamento de vídeo. Utilizando as bibliotecas OpenCV e TensorFlow, o software captura imagens da mão do usuário, aplica cores de esmalte escolhidas em tempo real e exibe o resultado. Essa ferramenta visa facilitar a escolha de esmaltes para clientes e otimizar o trabalho dos profissionais.</p>
+							<span><img src="powernail.png" alt="demo"></span><br>
 
-							<h2 class="major">2. Introdução</h2>
-							<p> O projeto apresentado neste relatório visa descrever o processo de produção de um software destinado ao público interessado em serviços de manicure e a comunidade acadêmica que tem interesse no campo de estudo de processamento de vídeo. 
 
-								A ideia inicial consistiu na elaboração de um software capaz de simular em um vídeo como a unha de um usuário ficaria se fosse pintada de alguma cor. O usuário posiciona a sua mão na direção da câmera, e então o software faz a leitura da imagem e retorna a imagem da sua mão inteira com as unhas pintadas da cor de sua preferência. 
+							<h2 class="major">Introdução</h2>
+							<p> O projeto apresentado neste relatório visa descrever o processo de produção de um software destinado ao público interessado em serviços de manicure e à comunidade acadêmica que tem interesse no campo de estudo de processamento de vídeo.</p>
+
+							<p>A ideia inicial consistiu na elaboração de um <strong>software capaz de simular em tempo real como a unha de um usuário ficaria se fosse pintada de alguma cor</strong>. O usuário posiciona a sua mão na direção da câmera, e então o software faz a leitura da imagem e retorna a imagem da sua mão inteira com as unhas pintadas da cor de sua preferência. </p>
 								
-								Diversos testes foram feitos com diferentes pessoas para testar a eficiência do software em reconhecer unicamente a parte das unhas e aplicar uma cor na área identificada. Adicionalmente, também houve o trabalho de trazer uma paleta de cores diversas que fossem próximas a realidade utilizada nos salões de beleza. 
-								
-								 </p>
+							<p>Diversos testes foram feitos com diferentes pessoas para testar a eficiência do software em reconhecer unicamente a parte das unhas e aplicar uma cor na área identificada. Adicionalmente, também houve o trabalho de trazer uma paleta de cores diversas que fosse próxima à realidade das cores utilizadas nos salões de beleza.</p>
 							
-							<h2 class="major">3. Materiais e Métodos </h2>
-								<p>  
+							<h2 class="major">Materiais e Métodos </h2>
 
-									O objetivo final, o projeto pode ser utilizado como uma solução para diversos estabelecimentos que oferecem o serviço de manicure, facilitando a escolha do cliente que pode ter uma prévia de como ficará o serviço e ajudando o profissional a ter menos desperdício e mais eficiência com os produtos utilizados. 
 									
+									<h3>Cenário de Aplicação (CA)</h3> 				
+									<p>
+										Como abordado anteriormente, o objetivo do sistema é ser utilizado como uma solução para manicures que atuam tanto em domicílio quanto em estabelecimentos de beleza, para facilitar a escolha do cliente em relação a coloração de esmalte que será utilizado pela manicure para a pintura das unhas. O cliente poderá ter uma prévia de como ficará o serviço, auxiliando o profissional na contenção de gastos, por conta do menor desperdício de matéria prima; maior produtividade, pela rapidez na escolha da cor do esmalte; e maior satisfação do cliente em relação ao serviço oferecido pelo profissional. 
+									</p>					
+
+									<h3>Modelagem Funcional do Sistema de Processamento de Visual (MFS)</h3>
+									
+									<p>Apresentamos abaixo o fluxograma do sistema elaborado para o atendimento do problema exposto.</p>
 									 
+								<span><img src="./fluxo.png" alt="demo"></span><br>
+
+						
+									<p>Tratando especificamente da etapa de construção do software, foram utilizadas três bibliotecas principais para a criação da aplicação: o OpenCV, o TensorFlow e o Tkinter. </p>
 									
-									3.2  Modelagem Funcional do Sistema de Processamento de Visual: 
+									<p>O <strong>OpenCV (Open Source Computer Vision)</strong> é uma biblioteca popular e poderosa de visão computacional e processamento de imagens. Neste aplicativo de rastreamento de unhas, o OpenCV desempenha um papel crucial e fornece várias funcionalidades essenciais para o processamento de imagens e a visualização dos resultados. Abaixo estão algumas das razões pelas quais o OpenCV é importante para essa aplicação:</p>
+									<ul>
+										<li><Strong>Acesso à Câmera e Captura de Vídeo:</Strong> O OpenCV permite acessar a câmera do dispositivo (Webcam) e capturar frames de vídeo em tempo real. Isso é fundamental para obter o fluxo contínuo de quadros a serem processados e rastreados.</li>
+										<li><strong>Processamento de Imagens:</strong> O OpenCV oferece uma ampla variedade de funções para o processamento de imagens, como conversão de cores, filtragem, operações morfológicas e suavização. Essas operações são usadas para pré-processar os quadros de vídeo, tornando-os mais adequados para a detecção de unhas.</li>
+										<li><strong>Detecção de Objetos:</strong> O OpenCV fornece recursos para detecção de objetos em imagens. Neste aplicativo, o OpenCV é usado para desenhar as elipses preenchidas ao redor das unhas detectadas, fornecendo informações visuais sobre suas posições.  </li>
+
+										<li><strong>Visualização em Tempo Real:</strong> O OpenCV possibilita a exibição dos quadros de vídeo e dos resultados do rastreamento em tempo real. Isso é essencial para verificar o desempenho da aplicação e depurar problemas durante a execução.  </li>
+
+										<li><strong>Desenho e Anotação:</strong> O OpenCV oferece funções para desenhar formas geométricas, retângulos, elipses e texto nas imagens. Isso é utilizado para pintar as unhas detectadas, fundamentando a apresentação dos resultados.</li>
+
+
+									</ul>
 									
-									 
 									
-									Tratando especificamente da primeira etapa de construção do software, foram utilizadas duas principais ferramentas para estruturar o código o OpenCV e o TensorFlow. 
-									
-									O OpenCV (Open Source Computer Vision) é uma biblioteca popular e poderosa de visão computacional e processamento de imagens. Neste aplicativo de rastreamento de unhas, o OpenCV desempenha um papel crucial e fornece várias funcionalidades essenciais para o processamento de imagens e a visualização dos resultados. Abaixo estão algumas das razões pelas quais o OpenCV é importante para essa aplicação:  
-									
-									Acesso à Câmera e Captura de Vídeo: O OpenCV permite acessar a câmera do dispositivo (Webcam) e capturar frames de vídeo em tempo real. Isso é fundamental para obter o fluxo contínuo de quadros a serem processados e rastreados.  
-									
-									Processamento de Imagens: O OpenCV oferece uma ampla variedade de funções para o processamento de imagens, como conversão de cores, filtragem, operações morfológicas e suavização. Essas operações são usadas para pré-processar os quadros de vídeo, tornando-os mais adequados para a detecção de unhas.  
-									
-									Detecção de Objetos: O OpenCV fornece recursos para detecção de objetos em imagens. Neste aplicativo, o OpenCV é usado para desenhar as elipses preenchidas ao redor das unhas detectadas, fornecendo informações visuais sobre suas posições.  
-									
-									Visualização em Tempo Real: O OpenCV possibilita a exibição dos quadros de vídeo e dos resultados do rastreamento em tempo real. Isso é essencial para verificar o desempenho da aplicação e depurar problemas durante a execução.  
-									
-									Desenho e Anotação: O OpenCV oferece funções para desenhar formas geométricas, retângulos, elipses e texto nas imagens. Isso é utilizado para criar os rótulos das unhas detectadas, melhorando a apresentação dos resultados.  
-									
-									Blending e Composição: O OpenCV permite a combinação de imagens usando blending e técnicas de composição. Neste aplicativo, o blending é usado para reduzir a opacidade das elipses desenhadas, permitindo que a imagem original seja parcialmente visível por trás delas.  
-									
+																		
 									Métodos específicos do OpenCV utilizados neste projeto: 
 									
-									 
-									
-									cv2.VideoCapture: Para acessar a câmera e capturar frames de vídeo. 
-									
-									cv2.cvtColor: Para converter os quadros de vídeo de um espaço de cores para outro (BGR para YCrCb). 
-									
-									cv2.GaussianBlur: Para aplicar o desfoque gaussiano nos quadros de vídeo. 
-									
-									cv2.inRange: Para criar uma máscara filtrando os pixels dentro de um determinado intervalo. 
-									
-									cv2.dilate: Para realizar operações morfológicas de dilatação na máscara. 
-									
-									cv2.ellipse: Para desenhar as elipses preenchidas ao redor das unhas detectadas. 
-									
-									cv2.putText: Para adicionar rótulos de texto nas imagens. 
-									
-									 
-									
-									A segunda biblioteca utilizada na construção do código foi o TensorFlow. 
-									
-									O TensorFlow desempenha um papel crucial na aplicação de Rastreamento de Unhas ao fornecer recursos avançados para criação e execução de modelos de aprendizado de máquina, especialmente para tarefas de detecção de objetos. Aqui está a importância do TensorFlow para essa aplicação, juntamente com alguns métodos relevantes da biblioteca que foram utilizados: 
-									
-									Modelo de Detecção de Objetos: O TensorFlow é amplamente utilizado para treinar e implantar modelos de detecção de objetos. Nesse caso, o modelo de detecção de objetos é fundamental para identificar as unhas nas imagens capturadas.  
-									
-									Inferência de Modelo: O TensorFlow permite a execução eficiente de inferência (previsões) nos modelos treinados. Na aplicação de rastreamento de unhas, o TensorFlow é usado para executar a detecção de objetos nos quadros de vídeo capturados.  
-									
-									Uso de Grafos: O TensorFlow trabalha com grafos de operações, permitindo otimizações eficientes e paralelização de cálculos. Na aplicação, o grafo é utilizado para carregar e executar o modelo de detecção de objetos.  
-									
-									Interoperabilidade com NumPy e OpenCV: O TensorFlow pode interoperar bem com outras bibliotecas, como NumPy e OpenCV. Isso permite a conversão e manipulação eficiente de dados entre diferentes formatos de bibliotecas.  
-									
-									 
-									
-									Métodos específicos do TensorFlow utilizados nesta aplicação:  
-									
-									tf.Graph(): Para criar um grafo de operações que contém o modelo de detecção de objetos. 
-									
-									tf.gfile.GFile(): Para ler o arquivo do modelo pré-treinado no formato do Protocol Buffer. 
-									
-									tf.import_graph_def(): Para importar a definição do grafo do modelo pré-treinado. 
-									
-									tf.Session(): Para criar uma sessão de execução do TensorFlow. 
-									
-									sess.run(): Para executar as operações no grafo e obter resultados. 
+									<p>
+										<ul>
+											<li><b>cv2.VideoCapture</b>: Para acessar a câmera e capturar frames de vídeo.</li>
+										
+												<li><b>cv2.cvtColor</b>: Para converter os quadros de vídeo de um espaço de cores para outro (BGR para YCrCb). </li>
+												
+												<li><b>cv2.GaussianBlur</b>: Para aplicar o desfoque gaussiano nos quadros de vídeo, removendo parte do ruído da imagem. </li>
+	
+												<li><b>cv2.equalizeHist</b>: Para melhorar o contraste da imagem, com base na equalização a partir do histograma da imagem. </li>
+												
+												<li><b>cv2.inRange</b>: Para criar uma máscara filtrando os pixels dentro de um determinado intervalo (subtração de fundo). </li>
+												
+												<li><b>cv2.dilate</b>: Para realizar operações morfológicas de dilatação na máscara.</li>
+												
+												<li><b>cv2.ellipse</b>: Para desenhar as elipses preenchidas ao redor das unhas detectadas. </li>
+												
+										</ul>
+									</p>
 									
 									 
 									
 									 
 									
-									3.3  Aplicação do Sistema de Processamento Visual 
+									<p>A segunda biblioteca utilizada na construção do código foi o <strong>TensorFlow</strong>. O TensorFlow desempenha um papel crucial na aplicação de Rastreamento de Unhas ao fornecer recursos avançados para criação e execução de modelos de aprendizado de máquina, especialmente para tarefas de detecção de objetos. </p>
 									
-									 
+									<p>Neste projeto, utilizamos uma biblioteca de modelos pré-treinados muito popular para a deteção de mãos, que inclui um modelo pré-treinado para a detecção de unhas, disponibilizaAqui está a importância do TensorFlow para essa aplicação, juntamente com alguns métodos relevantes da biblioteca que foram utilizados: </p>
 									
-									O maior trabalho foi fazer esses componentes do código trabalharem juntos para gerar um output satisfatório. Dessa forma, o passo a passo para a execução do código foi: 
 									
-									O aplicativo começa criando um grafo TensorFlow e carregando o grafo de inferência congelado pré-treinado (args["model"]) na memória. O modelo contém os pesos pré-treinados e a arquitetura para a detecção de objetos.  
 									
-									Inicializando a Captura de Vídeo: O código inicializa a captura de vídeo usando cv2.VideoCapture(0) para acessar a câmera padrão (Webcam). O fluxo de vídeo é, então, processado em um loop.  
-									
-									Capturando e Pré-processando os Quadros: No loop, cada quadro do fluxo de vídeo é capturado usando vs.read(). O quadro é, então, pré-processado usando a função process_image. O pré-processamento inclui a conversão do quadro para o espaço de cores YCrCb, aplicação de desfoque Gaussiano, criação de uma máscara para as unhas e realização de operações morfológicas.  
-									
-									Executando a Inferência: O quadro pré-processado (res) é passado para a função run_inference, que utiliza o modelo TensorFlow carregado para realizar a detecção de objetos. Essa função retorna os retângulos delimitadores, os escores de confiança e os rótulos para as unhas detectadas.  
-									
-									Processando os Resultados: A função process_results é chamada para processar os resultados da inferência. Ela filtra as detecções com baixa confiança e desenha elipses preenchidas ao redor das unhas detectadas. As unhas detectadas também são rotuladas com seus respectivos escores de confiança. 
-									
-									Exibindo a Saída: O quadro processado (output) com as elipses preenchidas e os rótulos é exibido usando cv2.imshow("Output", output). Isso cria uma saída em tempo real do aplicativo de rastreamento de unhas.  
-									
-									Continuando o Loop: O loop continua a capturar quadros da webcam, processá-los, realizar a inferência e exibir a saída. Isso permite que o aplicativo rastreie continuamente as unhas.  
-									
-									Saindo do Loop: O loop continua até que o usuário pressione a tecla "q". Nesse ponto, as janelas do OpenCV são fechadas (cv2.destroyAllWindows()) e o loop é encerrado com um break, finalizando o aplicativo de rastreamento de unhas.  
-									
-									Ao longo do processo, o aplicativo utiliza o modelo TensorFlow para a detecção de objetos, o OpenCV para o processamento e visualização das imagens, e o NumPy para operações com matrizes. A combinação dessas ferramentas permite que o aplicativo processe os quadros de vídeo, detecte as unhas, desenhe elipses preenchidas e exiba os resultados em tempo real.  
-									
-									É importante observar que o sucesso do rastreamento de unhas depende da qualidade do modelo pré-treinado e do desempenho da detecção de unhas. Para obter resultados mais precisos, talvez seja necessário ajustar o modelo ou utilizar uma arquitetura mais avançada para a detecção de objetos. 
-									
-									 
-									
-									Para o usuário utilizar o sistema, o processo é bastante simples.  
-									
-									Ao iniciar o código, e com o usuário com suas mãos posicionadas na plataforma, já é possível as mãos na tela do software com as cores padrão apresentada na interface inicial: </p>
-							
-							<span><img src="./1.png" alt="adinan"></span><br>
+									<ul>
+										<li><b>Modelo de Detecção de Objetos</b>: O TensorFlow é amplamente utilizado para treinar e implantar modelos de detecção de objetos. Nesse caso, o modelo de detecção de objetos é fundamental para identificar as unhas nas imagens capturadas.  
+										
+										<li><b>Inferência de Modelo</b>: O TensorFlow permite a execução eficiente de inferência (previsões) nos modelos treinados. Na aplicação de rastreamento de unhas, o TensorFlow é usado para executar a detecção de objetos nos quadros de vídeo capturados.</li>			
 
-							<p>Além das cores sugeridas na interface inicial, o usuário pode escolher as cores que desejar clicando no botão “Choose Color”. Após clicar, uma barra com novas paletas de cores é apresentada: </p>
-							
-							<span><img src="./2.png" alt="adinan"></span><br>
+										<li><b>Uso de Grafos</b>: O TensorFlow trabalha com grafos de operações, permitindo otimizações eficientes e paralelização de cálculos. Na aplicação, o grafo é utilizado para carregar e executar o modelo de detecção de objetos.</li>
+											
+										<li><b>Interoperabilidade com NumPy e OpenCV</b>: O TensorFlow pode interoperar bem com outras bibliotecas, como NumPy e OpenCV. Isso permite a conversão e manipulação eficiente de dados entre diferentes formatos de bibliotecas. </li>
+									</ul> 
+									
+									 
+									
+									<p>Métodos específicos do TensorFlow utilizados nesta aplicação:</p>  
+									
+									<ul>
+										<li><b>tf.Graph()</b>: Para criar um grafo de operações que contém o modelo de detecção de objetos. </li>
+									
+											<li><b>tf.gfile.GFile()</b>: Para ler o arquivo do modelo pré-treinado no formato do Protocol Buffer. </li>
+											
+											<li><b>tf.import_graph_def()</b>: Para importar a definição do grafo do modelo pré-treinado. </li>
+											
+											<li><b>tf.Session()</b>: Para criar uma sessão de execução do TensorFlow. </li>
+											
+											<li><b>sess.run()</b>: Para executar as operações no grafo e obter resultados. </li>
+									</ul>
+									
+									<p>O <strong>Tkinter</strong> é uma biblioteca gráfica padrão do Python usada para criar interfaces gráficas de usuário (GUIs). Na aplicação desenvolvida, o Tkinter é usado para criar a interface da aplicação de captura de webcam. Aqui estão as principais importâncias do Tkinter para o código:</p>
 
-							<p>3.4  Análise dos Resultados do Teste de Campo 
+									<ul>
+										<li><strong>Criação da Interface Gráfica:</strong> O Tkinter permite criar uma janela gráfica onde os elementos da interface podem ser posicionados e interagidos. No código, ele é usado para criar a janela principal da aplicação que exibirá o feed da webcam, os botões de seleção de cores e os botões "Escolher Cor" e "Sair".</li>
+									
+											<li><strong>Posicionamento de Elementos:</strong> O Tkinter fornece métodos para posicionar elementos gráficos, como botões e imagens, na janela. Isso é utilizado para dispor os botões de seleção de cores, o botão "Escolher Cor", o botão "Sair" e o feed da webcam de acordo com um layout específico.</li>
+											
+											<li><strong>Gestão de Eventos:</strong> A biblioteca permite associar funções a eventos, como cliques de botões. Isso é essencial para permitir interações com a interface do usuário. Por exemplo, quando o usuário clica em um botão de seleção de cor ou no botão "Escolher Cor", funções específicas são executadas para atualizar a cor selecionada.</li>
+											
+											<li><strong>Integração com Imagens:</strong> O Tkinter pode exibir imagens dentro da janela gráfica. No código, ele é usado para exibir o feed da webcam após o processamento em tempo real. A conversão das imagens entre os formatos OpenCV e PIL (Pillow) é intermediada pelo Tkinter para exibir as imagens corretamente na interface.</li>
+											
+											<li><strong>Widgets Interativos:</strong> O Tkinter fornece vários widgets interativos, como botões, caixas de seleção, caixas de texto, entre outros. No código, os botões de seleção de cores, os botões "Escolher Cor" e "Sair" são exemplos de widgets interativos.</li>
+											
+											<li><strong>Estilização da Interface:</strong> O Tkinter permite personalizar a aparência da interface, incluindo a cor de fundo, a fonte, o tamanho e a disposição dos elementos. Isso é útil para criar uma interface mais agradável e intuitiva para o usuário.</li>
+											
+											<li><strong>Loop Principal da Interface:</strong> O Tkinter também gerencia o loop principal da interface gráfica, garantindo que os elementos sejam atualizados e eventos sejam tratados corretamente. Isso é essencial para manter a aplicação responsiva e interativa.</li>
+									</ul>
+									
+									<p>No geral, o Tkinter é crucial para a criação da interface gráfica da aplicação de captura de webcam, permitindo que o usuário interaja com os controles, visualize o feed da webcam e escolha as cores desejadas. Ele atua como uma ponte entre a lógica do programa e a interação do usuário, fornecendo os recursos necessários para construir uma interface funcional e atraente.</p>
+
+									<h3>Cronograma efetivo</h3> 
 
  
 
-								Após pesquisas feitas com os usuários do protótipo, foi possível averiguar se o uso foi satisfatório ou não. 
+									<p>O projeto foi desenvolvido ao longo dos meses de julho e agosto de 2023. Abaixo, exibimos as etapas de desenvolvimento do projeto: </p>
+							
+									<center><img src="./5.png" alt="cronograma do projeto"></center><br><br>
+
+									
+									 
+									
+									<h3>Aplicação do Sistema de Processamento Visual </h3>
+	
+									<p>O maior desafio deste projeto foi possibilitar que tais componentes do código trabalhassem juntos e harmoniosamente para gerar um resultado satisfatório e relevante ao usuário. Dessa forma, o passo a passo para a execução do código foi: 
+									
+									<ol>
+									
+									<li>O aplicativo começa abrindo a janela com os botões para escolha da cor e o frame de exibição da câmera. Logo após é criado um grafo TensorFlow e carregado o grafo de inferência pré-treinado na memória. O modelo contém os pesos pré-treinados da rede neural e a arquitetura para a detecção de objetos.  </li>
+
+									<li>Inicializando a Captura de Vídeo: O código inicializa a captura de vídeo usando cv2.VideoCapture(0) para acessar a câmera padrão (Webcam). O fluxo de vídeo é, então, processado em um loop.  </li>
+									
+									<li>Capturando e Pré-processando os Quadros: No loop, cada quadro do fluxo de vídeo é capturado e, então, pré-processado usando a função process_image. O pré-processamento inclui a conversão do quadro para o espaço de cores YCrCb, equalização via histograma do canal de luminância (Y), aplicação de desfoque Gaussiano, criação de uma máscara para as unhas e realização de operações morfológicas.  </li>
+
+									<li>Executando a Inferência: O quadro pré-processado é passado para a função run_inference, que utiliza o modelo TensorFlow carregado para realizar a detecção de objetos. Essa função retorna os retângulos delimitadores das unhas e os escores de confiança. </li>
+
+									<li>Processando os Resultados: A função process_results é chamada para processar os resultados da inferência. Ela filtra as detecções com baixa confiança e desenha elipses preenchidas ao redor das unhas detectadas.</li>
+
+									<li>Exibindo a Saída: O quadro processado (output) com as elipses preenchidas é exibido na interface criada com o Tkinter. Isso cria uma saída em tempo real do aplicativo de rastreamento de unhas.  </li>
+
+									<li>Continuando o Loop: O loop continua a capturar quadros da webcam, processá-los, realizar a inferência e exibir a saída. Isso permite que o aplicativo rastreie e pinte continuamente as unhas.  </li>
+
+									<li>Saindo do Loop: O loop continua até que o usuário pressione o botão "quit" na interface. Nesse ponto, as janelas do OpenCV são fechadas (cv2.destroyAllWindows()) e o loop é encerrado com um break, finalizando o aplicativo.  </li>
+
+									</ol></p>
+									
+									<p>Para o usuário utilizar o sistema, o processo é bastante simples.  
+									
+									Ao iniciar o código, e com suas mãos posicionadas na estrutura criada, o programa já inicia automaticamente o reconhecimento e a pintura das unhas detectadas, com uma cor padrão definida no código: </p>
+							
+							<center><span><img src="./default_screen.png" alt="adinan"></span><br></center>
+
+							<p>Além das cores sugeridas na interface inicial, o usuário pode escolher as cores que desejar clicando no botão “Choose Color”. Após clicar, uma barra com novas paletas de cores é apresentada, como é ilustrado no vídeo demonstrativo abaixo: </p>
+							
+							<!-- <span><img src="./2.png" alt="adinan"></span><br><br> -->
+
+							<center><iframe width="560" height="315" src="https://www.youtube.com/embed/gqj7V9QhkYI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center> <br><br><br>
+
+							<h3>Análise técnica do sistema implementado</h3>
+							<p>O sistema atendeu bem os requisitos pré-definidos do projeto. A detecção utilizando redes neurais funcionou de maneira excelente, obtendo ótimos resultados até mesmo com pouca luz e com os dedos inclinados. Contudo, por conta do alto uso de recursos computacionais para a detecção via Inteligência Artificial, a aplicação sofre com problemas de atraso no tempo de resposta, variando consideravelmente dependendo do hardware do dispositivo que executa a aplicação. Em média, obtivemos um atraso de 10 segundos entre a entrada do vídeo e a saída da aplicação, nos computadores do laboratório 401-1 da UFABC.</p>
+
+							<p>Para efeitos de comparação da acurária da detecção das unhas, realizamos testes com três cores diferentes de fundos para as mãos: fundo branco, fundo preto e fundo verde tipo <i>chromakey</i>. As taxas de acertos foram semelhantes para todas as cores, contudo, notamos que as cores preto e verde tiraram o destaque da cor do esmalte, bem como alteraram significativamente a tonalidade da pele. Por isso, adotamos como padrão o fundo branco.</p>
+
+							<span><img src="powernail_black.png" alt="demo"></span><br>
+
+							<span><img src="powernail_green.png" alt="demo"></span><br>
+
+							<span><img src="powernail.png" alt="demo"></span><br>
+
+						
+
+							<p>A adoção de Inteligência Artificial para a detecção das unhas se deu por conta da facilidade de uso da aplicação com tal tecnologia, pois nenhum procedimento na unha é necessário para a sua detecção. Caso tivéssemos optado por trabalhar somente com a biblioteca OpenCV, seriam necessários procedimentos físicos nas unhas para evidenciá-las e assim melhorar a detecção, como a aplicação de um esmalte tipo base ou ainda a colagem de adesivos de cor verde tipo <i>chromakey</i> para facilitar a detecção.</p>
+
+							<p>No geral, os resultados foram positivos e satisfatórios. A aplicação agradou tanto a equipe que a confeccionou quanto aos usuários que a testaram, como poderá ser constatado a partir dos resultados obtidos no Teste de Campo, que são exibidos abaixo.</p>
+
+							<h3>Lista de arquivos</h3>
+
+							<center><p style="background-color:rgb(161, 72, 199);border-radius: 10px;
+								""><strong>O repositório do projeto contendo todos os scripts Python, uma breve introdução ao projeto e um tutorial de como executar a aplicação, está disponível no GitHub. Link para acesso: <a href="https://github.com/adinanabf/PowerNail" target="blank" style="color:#00eeff;">https://github.com/adinanabf/PowerNail</a>.</strong></p></center>
+
+
+
+							<h3>Análise dos Resultados do Teste de Campo </h3>
+
+							
+							<p>O Teste de Campo consistiu na utilização da nossa aplicação por parte dos alunos e técnicos presentes na sala de aula durante as aulas de experimentação dos projetos. Os usuários foram instruidos acerca do posicionamento das mãos na estrutura de apoio e da execução da aplicação, contudo, a utilização da aplicação por parte deles não foi guiada, a fim de detectar se a interface era amigável aos usuários. Com base em tais experimentos, foi possível averiguar se o uso foi satisfatório ou não.</p>
+
+							<p>Abaixo, exibimos fotografias de usuários testando nosso produto. Todos os direitos de imagem foram cedidos para Pixel Power.</p>
+
+							<center><span><img src="./usuario1.jpeg" alt="usuario 1 testando o app" width="450"></span><br></center><Br>
+
+
+							<center><span><img src="./usuario2.jpeg" alt="usuario 2 testando o app" width="450"></span><br></center><Br>
+
+
+							<p>Após a utilização da aplicação, cada usuário respondeu dois questionários acerca da aplicação. O primeiro questionário continha questões a respeito de seu funcionamento. Abaixo, ilustramos as perguntas contidas no primeiro questionário: </p> 
+
+							<center><span><img src="./form_1.png" alt="formulário 1" width="450"></span><br></center><Br>
+
+							<p>Já o segundo questionário continha questões a respeito da experiência do usuário com a aplicação. Abaixo, ilustramos as perguntas contidas no segundo questionário: </p>
+
+							<center><span><img src="./form_2.png" alt="formulário 2" width="450"></span><br></center><br><br>
+							
+							<p>Após a coleta das respostas, partimos para a análise dos dados. A partir deles, criamos dois gráficos para ilustrar o panorama geral dos resultados. O gráfico abaixo ilustra as notas fornecidas em relação a satisfação do usuário. Nota-se que todos os usuários avaliaram o sistema com nota acima de 7, e mais da metade dos usuários deu nota máxima para o produto. </p>
+							
+							
+							<center><span><img src="./satisfacao_cliente.png" alt="satisfacao dos clientes"></span><br></center><br><br>
+							<p>Adicionalmente, foi feita uma pesquisa para saber se o usuário indicaria o sistema para outra pessoa. Essa indicação também foi parametrizada por notas. O resultado, vide gráfico abaixo, foi bastante positivo: </p>
+
+							<center><span><img src="./indicacao_clientes.png" alt="indicação para outros clientes"></span><br><br></center>
+
+							
+
+
+							<h2 class="major">Conclusão</h2>
+
+								<p>Em conclusão, o grupo Pixel Power desenvolveu um software que utiliza processamento de vídeo para simular a aplicação de esmalte em unhas, visando tanto os consumidores de serviços de manicure quanto a comunidade acadêmica interessada em processamento de vídeo. Através da combinação das bibliotecas OpenCV, TensorFlow e Tkinter, o software captura imagens da mão do usuário, aplica uma cor de esmalte escolhida pelo usuário e exibe o resultado em tempo real. O processo de desenvolvimento envolveu a integração de componentes chave, incluindo o uso do OpenCV para acesso à câmera, processamento de imagens e detecção de objetos, e do TensorFlow para inferência de modelo de detecção de objetos. O aplicativo é uma ferramenta valiosa para clientes ao escolherem cores de esmalte e para profissionais de manicure ao otimizarem seus serviços. No entanto, a eficácia do rastreamento de unhas depende da capacidade de processamento disponível, para que os resultados sejam exibidos mais rapidamente. </p>
+
+							<h2 class="major">Referências</h2>
+
+							<p><a href="https://docs.opencv.org/4.x/d2/d0a/tutorial_introduction_to_tracker.html" target="_blank">[1] OPENCV. Open Source Computer Vision.</a> Acesso em: 11 de jun. de 2023.<br>
 								
-								Com base no gráfico abaixo, os usuários atribuíram notas em relação a sua satisfação. E o resultado é que todos avaliaram o sistema com nota acima de 7. </p>
-							
-							<span><img src="./3.png" alt="adinan"></span><br>
+								<a href="https://www.tensorflow.org/?hl=pt-br" target="_blank">[2] TensorFlow</a>. Acesso em: 14 de ago. de 2023.<br>
 
-							<p>Adicionalmente, foi feita uma pesquisa para saber se o usuário indicaria o sistema para outra pessoa. Essa indicação também foi parametrizada por notas. O resultado, vide gráfico abaixo foi bastante positivo: </p>
+								<a href="https://docs.opencv.org/4.x/db/d28/tutorial_cascade_classifier.html" target="_blank">[3] Cascade Classifier by Open Source Computer Vision.</a> Acesso em: 11 de ago. de 2023.<br>
 
-							<span><img src="./4.png" alt="adinan"></span><br>
+								<a href="https://github.com/victordibia/handtracking" target="_blank">[4] Real-time Hand-Detection using Neural Networks (SSD) on Tensorflow.</a> by Victor Dibia. Acesso em: 12 de jul. de 2023.<br>
 
-							<p>3.5 Cronograma efetivo 
+								<a href="https://github.com/toddwyl/nailtracking" target="_blank">[5] Nail Detection with MobileNetV1-FPN-SSD</a>by Wen Yongliang. Acesso em: 14 de jul. de 2023.
+							</p>
 
- 
+						</div>
 
-								O projeto foi desenvolvido ao longo do mês de julho e agosto de 2023. 
-								
-								Abaixo, como foram as etapas de desenvolvimento do projeto: </p>
-							
-							<span><img src="./5.png" alt="adinan"></span><br>
-
-
-							<h2 class="major">4. Conclusão</h2>
-
-								<p>Em conclusão, o projeto desenvolveu um software que utiliza processamento de vídeo para simular a aplicação de esmalte em unhas, visando tanto os consumidores de serviços de manicure quanto a comunidade acadêmica interessada em processamento de vídeo. Através da combinação das bibliotecas OpenCV e TensorFlow, o software captura imagens da mão do usuário, aplica cores de esmalte escolhidas e exibe o resultado em tempo real. O processo de desenvolvimento envolveu a integração de componentes chave, incluindo o uso do OpenCV para acesso à câmera, processamento de imagens e detecção de objetos, e do TensorFlow para inferência de modelo de detecção de objetos. O aplicativo pode ser uma ferramenta valiosa para clientes ao escolherem cores de esmalte e para profissionais de manicure ao otimizarem seus serviços. No entanto, a eficácia do rastreamento de unhas depende da qualidade do modelo de detecção e da capacidade de ajustar a arquitetura para obter resultados mais precisos. </p>
-							<h2 class="major">5. Referencias</h2>
-
-								<p>OPENCV. Open Source Computer Vision. Disponível em: 					< https://docs.opencv.org/4.x/db/d28/tutorial_cascade_classifier.html >. Acesso em: 11 de ago. de 2023. 
-
- 
-
-									OPENCV. Open Source Computer Vision. Disponível em: < https://docs.opencv.org/4.x/d2/d0a/tutorial_introduction_to_tracker.html >. Acesso em: 11 de ago. de 2023. 
-									
-									 
-									
-									TensorFlow. Disponível em: < https://www.tensorflow.org/?hl=pt-br >. Acesso em: 14 de ago. de 2023. </p>
-
-
+					</section>
 
 		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Pixel Power 2023. Todos os direitos reservados.</li><li>Inspiração para o design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+		<footer id="footer" class="wrapper style1-alt">
+			<div class="inner">
+				<ul class="menu">
+					<li>&copy; Pixel Power 2023. Todos os direitos reservados.</li><li>Inspiração para o design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
-	</body>
+</body>
 </html>
